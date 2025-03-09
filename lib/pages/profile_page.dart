@@ -4,16 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:jastipgo/pages/logreg.dart';
 import 'package:jastipgo/auth/auth_services.dart';
 
-
 class ProfilePage extends StatelessWidget {
   ProfilePage({super.key});
   final authService = AuthService();
 
   @override
   Widget build(BuildContext context) {
-      final currentEmail = authService.getCurrentUserEmail();
+    final currentEmail = authService.getCurrentUserEmail();
 
-    return WillPopScope( // Mencegah tombol back di Android
+    return WillPopScope(
+      // Mencegah tombol back di Android
       onWillPop: () async => false,
       child: Scaffold(
         appBar: AppBar(
@@ -31,7 +31,8 @@ class ProfilePage extends StatelessWidget {
                   Navigator.pushAndRemoveUntil(
                     context,
                     MaterialPageRoute(builder: (context) => const LogRegPage()),
-                    (Route<dynamic> route) => false, // Hapus semua halaman sebelumnya
+                    (Route<dynamic> route) =>
+                        false, // Hapus semua halaman sebelumnya
                   );
                 },
                 child: Text('Sign Out'),
