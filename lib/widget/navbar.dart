@@ -30,11 +30,13 @@ class _CustomNavbarState extends State<CustomNavbar> {
   Widget build(BuildContext context) {
     return Stack(
       alignment: Alignment.bottomCenter,
+      clipBehavior: Clip.none, // Supaya FAB tidak terpotong
       children: [
         BottomAppBar(
           shape: CircularNotchedRectangle(),
           color: Color(0xFFC64F38),
           notchMargin: 6.0,
+          clipBehavior: Clip.antiAlias,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
@@ -45,13 +47,25 @@ class _CustomNavbarState extends State<CustomNavbar> {
           ),
         ),
         Positioned(
-          bottom: 10,
-          child: FloatingActionButton(
-            onPressed: _toggleFab,
-            backgroundColor: Color(0xFFC64F38),
-            child: Icon(
-              _isFabOpen ? Icons.close : Icons.add,
-              color: Colors.white,
+          bottom: 30, // FAB naik setengah di atas navbar
+          child: Container(
+            width: 80, // Lebar FAB yang lebih besar
+            height: 80, // Tinggi FAB yang lebih besar
+            child: FloatingActionButton(
+              onPressed: _toggleFab,
+              backgroundColor: Color(0xFFC64F38),
+              elevation: 0, // Menghilangkan shadow
+              shape: CircleBorder(
+                side: BorderSide(
+                  color: Colors.white,
+                  width: 2, // Border lebih tipis
+                ),
+              ),
+              child: Icon(
+                _isFabOpen ? Icons.close : Icons.add,
+                color: Colors.white,
+                size: 40, // Ukuran ikon yang lebih besar
+              ),
             ),
           ),
         ),

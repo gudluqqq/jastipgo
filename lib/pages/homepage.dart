@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jastipgo/widget/custommenu.dart'; // Import CustomMenu
 import 'profile_page.dart';
 import 'package:jastipgo/widget/navbar.dart';
 
@@ -150,19 +151,13 @@ class _HomePageState extends State<HomePage> {
           ),
           if (_isFabOpen)
             Positioned(
-              bottom: 80,
-              left: MediaQuery.of(context).size.width / 2 - 50,
-              child: Material(
-                color: Colors.white,
-                elevation: 5,
-                borderRadius: BorderRadius.circular(10),
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Text(
-                    "Popup Box",
-                    style: TextStyle(color: Colors.black, fontSize: 18),
-                  ),
-                ),
+              bottom: 0,
+              left: 0,
+              right: 0,
+              child: CustomMenu(
+                onMenuItemSelected: (item) {
+                  print("Selected: $item");
+                },
               ),
             ),
         ],
