@@ -151,9 +151,9 @@ class _HomePageState extends State<HomePage> {
           ),
           if (_isFabOpen)
             Positioned(
-              bottom: 0,
+              top: 0,
               left: 0,
-              right: 0,
+              bottom: 0,
               child: CustomMenu(
                 onMenuItemSelected: (item) {
                   print("Selected: $item");
