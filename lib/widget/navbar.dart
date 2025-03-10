@@ -48,7 +48,7 @@ class _CustomNavbarState extends State<CustomNavbar> {
         ),
         Positioned(
           bottom: 30, // FAB naik setengah di atas navbar
-          child: Container(
+          child: SizedBox(
             width: 80, // Lebar FAB yang lebih besar
             height: 80, // Tinggi FAB yang lebih besar
             child: FloatingActionButton(

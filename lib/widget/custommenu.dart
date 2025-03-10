@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 class CustomMenu extends StatefulWidget {
   final Function(String) onMenuItemSelected;
 
-  const CustomMenu({Key? key, required this.onMenuItemSelected})
-    : super(key: key);
+  const CustomMenu({super.key, required this.onMenuItemSelected});
 
   @override
   _CustomMenuState createState() => _CustomMenuState();
@@ -13,8 +12,7 @@ class CustomMenu extends StatefulWidget {
 class _CustomMenuState extends State<CustomMenu> {
   String _selectedItem = '';
   bool _isMenuVisible = false;
-  bool _isTextVisible = true; // Teks akan selalu terlihat
-  TextEditingController _textController = TextEditingController();
+  final TextEditingController _textController = TextEditingController();
 
   @override
   void initState() {
@@ -146,13 +144,7 @@ class _CustomMenuState extends State<CustomMenu> {
                     // Tombol kirim di tengah
                     Center(
                       child: ElevatedButton(
-                        onPressed: _onKirimPressed, // Menambahkan logika kirim
-                        child: Text(
-                          "Kirim",
-                          style: TextStyle(
-                            color: Colors.white,
-                          ), // Warna teks tombol "Kirim" diubah menjadi putih
-                        ),
+                        onPressed: _onKirimPressed,
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Color(
                             0xFF84231F,
@@ -164,6 +156,12 @@ class _CustomMenuState extends State<CustomMenu> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
                           ),
+                        ), // Menambahkan logika kirim
+                        child: Text(
+                          "Kirim",
+                          style: TextStyle(
+                            color: Colors.white,
+                          ), // Warna teks tombol "Kirim" diubah menjadi putih
                         ),
                       ),
                     ),
